@@ -1,0 +1,5 @@
+applications:
+ - name: mhpyservser
+#   random-route: true
+   host: MHanalysis_python
+   memory: 512M
