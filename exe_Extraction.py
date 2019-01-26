@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import bs4, requests
 from janome.tokenizer import Tokenizer
 

@@ -19,3 +19,11 @@ def _id_db(id_data):
     db_cav.writerow(id_data)
     db.close()
     return 'complete'
+
+
+def match_id(record):
+    db = open('_id_match.csv', 'a')
+    db_cav = csv.writer(db, lineterminator='\n')
+    db_cav.writerow(record)
+    db.close()
+    

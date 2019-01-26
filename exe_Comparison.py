@@ -2,8 +2,8 @@ import Comparison, csv
 
 def exe(_id):
     match_id = open('_id_data.csv', 'r')
-    reder = csv.reder(match_id)
-    for i in reder:
+    reader = csv.reader(match_id)
+    for i in reader:
         if _id == i[0]:
             madia = i[2]
             break
@@ -26,3 +26,16 @@ def exe(_id):
     _id2, rate2 = Comparison.comparison(_id, Extraction, Object_csv2)
 
     return _id1, rate1, _id2, rate2
+
+def exe_information(id):
+    result_value = []
+    db = open('_id_match.csv', 'r')
+    reader = csv.reader(db)
+    for i in reader:
+        if id == i[0]:
+            result_value.append(i[1])
+            result_value.append(i[2])
+            result_value.append(i[3])
+            result_value.append(i[4])
+    db.close()
+    return result_value
