@@ -11,7 +11,7 @@ def Authentication():
     return drive
 
 # google_drive_一覧表示 
-def display(brive):
+def display(drive):
     display = []
     file_list = drive.ListFile({'q': "'root' in parents"}).GetList()
     for f in file_list:
@@ -22,11 +22,10 @@ def display(brive):
 def upload(drive):
     csv_file = []
     path = os.getcwd()
-    os.chdir(path)
     csv = glob.glob(path+"/*.csv")
+    path = path + '/'
     for csv_data in csv:
-        csv_file.append(csv_data.strip(path))
-    print (csv_file)
+        csv_file.append(csv_data.replace(path, ''))
     for dt in csv_file:
         file2 = drive.CreateFile()
         file2.SetContentFile(dt)
@@ -69,6 +68,7 @@ def download(drive):
         file_import = drive.CreateFile({'id': Import_object})
         file_import.GetContentFile(T_data[If])
     return 'import_complete'
+
 
 def data():
     drive = Authentication()
